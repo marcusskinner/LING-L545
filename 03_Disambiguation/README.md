@@ -49,7 +49,7 @@ LAS        |    100.00 |    100.00 |    100.00 |    100.00
 
 <h2>After</h2>
 
-I created a script that trained the perceptron with a random subset of features. The highest I achieved was 96.39 accuracy by removing the features "bias," "i pref1," "i-1 word" and "i+1 suffix"
+I created a script (optimize.py) that trained the perceptron with a random subset of features by modifying the tagger.py file to take in a set of flags. If a flag is set to 1, then the perceptron will consider that feature. The highest I achieved was 96.39 accuracy by removing the features "bias," "i pref1," "i-1 word" and "i+1 suffix"
 
 Metrics    | Precision |    Recall |  F1 Score | AligndAcc
 -----------|-----------|-----------|-----------|-----------
