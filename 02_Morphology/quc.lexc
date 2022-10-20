@@ -1,0 +1,51 @@
+Multichar_Symbols
+
+%<v%>                   ! Verbo
+%<iv%>                  ! Intransitivo
+%<impf%>                ! Imperfectivo
+%<s_sg1%>               ! Concordancia 
+%<s_sg3%>               ! Concordancia
+%<s_pl1%>               ! Concordancia
+
+%{n%}
+%{a%}
+
+@U.TAM.Impf@            
+
+@U.S_AGR.SG1@
+@U.S_AGR.SG3@
+@U.S_AGR.PL1@
+
+%>
+
+LEXICON Root
+
+Aspect ;
+
+LEXICON Aspect 
+
+@U.TAM.Impf@:@U.TAM.Impf@k%{a%}%> AgrS ; 
+
+LEXICON AgrS 
+
+@U.S_AGR.SG1@:@U.S_AGR.SG1@i%{n%}%> IV ; 
+@U.S_AGR.SG3@:@U.S_AGR.SG3@%> IV ; 
+@U.S_AGR.PL1@:@U.S_AGR.PL1@uj%> IV ; 
+
+LEXICON Person
+
+@U.S_AGR.SG1@%<s_sg1%>:@U.S_AGR.SG1@ # ; 
+@U.S_AGR.SG3@%<s_sg3%>:@U.S_AGR.SG3@ # ; 
+@U.S_AGR.PL1@%<s_pl1%>:@U.S_AGR.PL1@ # ; 
+
+LEXICON Asp 
+
+@U.TAM.Impf@%<impf%>:@U.TAM.Impf@ Person ; 
+
+LEXICON V-IV 
+
+%<v%>%<iv%>: Asp ;
+
+LEXICON IV 
+
+bʼe:bʼe V-IV  ; ! "go"
