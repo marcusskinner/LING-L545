@@ -1,0 +1,67 @@
+Multichar_Symbols
+
+%<v%>     ! Verb
+%<tv%>    ! Transitive Verb
+%<perf%>  ! Perfect
+%<s_sg1%> ! Subject 1st Person singular
+%<s_sg2%> ! Subject 2nd person Singular
+%<s_sg3%> ! Subject 3rd person singular
+%<s_pl1%> ! Subject 1st person plural
+%<s_pl2%> ! subject 2nd person plural
+%<s_pl3%> ! subject 3rd person plural
+%<o_sg1%> ! object 1st person singular
+%<o_sg1%> ! object 2nd person singular
+%<o_sg3%> ! object 3rd person singular
+%<o_pl1%> ! object 1st person plural
+%<o_pl2%> ! object 2nd person plural
+%<o_pl3%> ! object 3rd person plural
+
+@U.TAM.perf@            
+
+@U.S_AGR.SG1@
+@U.S_AGR.SG3@
+@U.S_AGR.PL1@
+
+@U.O_AGR.SG1@
+@U.O_AGR.SG3@
+@U.O_AGR.PL1@
+
+%{a%}
+
+%>
+
+LEXICON Root
+
+Aspect ;
+
+LEXICON Aspect 
+
+@U.TAM.perf@:@U.TAM.perf@x%{a%}%> AgrO ; 
+
+LEXICON AgrO
+
+@U.O_AGR.SG1@:@U.AGR_O.SG1@ AgrS ;
+
+LEXICON AgrS 
+
+@U.S_AGR.SG1@:@U.S_AGR.SG1@in%{a%}%> IV ; 
+
+LIXICON Person_S
+
+@U.S_AGR.SG1@%<s_sg1%>:@U.S_AGR.SG1@ Person_O # ;
+
+LEXICON Person_O
+
+@U.O_AGR.SG1@%<o_sg1%>:@U.O_AGR.SG1@ # ; 
+
+LEXICON Asp 
+
+@U.TAM.perf@%<perf%>:@U.TAM.perf@ Person_S ; 
+
+LEXICON V-IV 
+
+%<v%>%<tv%>: Asp ;
+
+LEXICON IV 
+
+tzʼät:tzʼät V-IV  ; ! "to see"
