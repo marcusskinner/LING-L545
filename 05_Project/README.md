@@ -1,6 +1,6 @@
 # Project
 
-The project utilizes graph convolutional neural networks to predict the price total on a receipt. Several graph convolutions were tested, each resulting in different precision scores. The performance of different graph convolutions can be seen in the table below.
+The project utilizes graph convolutional neural networks to predict the price total on a receipt. Several graph convolutions were tested, each resulting in different precision scores. The performance of different graph convolutions can be seen in the table below. The CORD dataset was used for training and testing.
 
 | Convolution | Precision |
 | ----------- | ----------- |
@@ -15,4 +15,4 @@ The results can (nearly) be replicated by running the script as follows in comma
 
 python train.py
 
-Once done, the script will print the precision scores of the models.
+Once done, the script will print the precision scores of the models. Further information can be found in the 
