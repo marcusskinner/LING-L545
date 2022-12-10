@@ -17,6 +17,7 @@ class ReceiptNet():
     def __init__(self,
                  training_graph,
                  validation_graphs = None,
+                 conv = 'sage',
                  seed = None):
         
         # Initialize the training and validation graphs
@@ -33,7 +34,16 @@ class ReceiptNet():
         test_mask = self.training_graph.ndata['test_mask']
         
         # initialize the models
-        self.model = SAGENodeClassifier(seed=seed, feat_drop=0.125)
+        if conv == 'sage':
+            self.model = SAGENodeClassifier(seed=seed, feat_drop=0.125)
+        elif conv == 'gat':
+            self.model = GATNodeClassifier()
+        elif conv == 'graph':
+            self.model = GCNNodeClassifier()
+        elif conv == 'tag':
+            self.model = TAGNodeClassifier()
+        elif conv == 'cheby':
+            self.model = ChebNetNodeClassifier()
         
         # train the models with dataset
         self.model.fit(self.training_graph, price_ft, labels, train_mask, test_mask)
@@ -169,12 +179,14 @@ class ReceiptNet():
         
         # Compute Accuracy
         acc_price = (TP_price + TN_price)/(num_nodes)
-                    
+        
+        # comment out for more metrics
+        """
         print('---PRICE EVALUATION---')
         print(f'Sensitivity: ' + f'{sens_price}')
         print(f'Specificity: ' + f'{spec_price}')
         print(f'Precision: ' + f'{prec_price}')
         print(f'F1-Score: ' + f'{f1_price}')
         print(f'Accuracy: ' + f'{acc_price}')
-        
-        return f1_price
+        """
+        return prec_price

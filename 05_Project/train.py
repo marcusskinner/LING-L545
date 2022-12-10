@@ -64,14 +64,17 @@ def train():
         validation_graphs.append(graph)
 
     # train the model
-    clf = ReceiptNet(training_graph, validation_graphs)
-    clf.score()
+    scores = []
+    convs = ['sage', 'graph', 'gat', 'tag','cheby']
+    for c in convs:
+        clf = ReceiptNet(training_graph, validation_graphs, conv=c)
+        scores.append(clf.score())
 
-    with open('model/receipt-net.pkl', 'wb') as f:
-        pickle.dump(clf, f)
-
-    # notify user that training is complete
+    # notify user that training is complete and print results
     print('Training complete.')
+    print("RESULTS")
+    for i in range(len(convs)):
+        print(convs[i] + ": " + str(scores[i]))
 
 
 if __name__ == '__main__':
